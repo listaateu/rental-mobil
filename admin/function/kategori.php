@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '../database/connection.php';
+require_once 'database/connection.php';
 
-class Kendaraan
+class Kategori
 {
     private $conn;
 
@@ -13,14 +13,8 @@ class Kendaraan
     }
 
     public function tambah(
-        $id,
-        $kategori,
-        
+        $kategori
     ) {
-        $var_id = mysqli_real_escape_string(
-            $this->conn,
-            $id
-        );
 
         $var_kategori = mysqli_real_escape_string(
             $this->conn,
@@ -28,11 +22,9 @@ class Kendaraan
         );
 
         $query = "INSERT INTO kategori 
-                  (id, kategori)
+                  (kategori)
                   VALUES (
-                      '$var_id',
-                      '$var_kategori';
-                      
+                  '$var_kategori'
                   )";
 
         return mysqli_query($this->conn, $query);
